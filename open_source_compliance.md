@@ -14,7 +14,7 @@
     *   Modify the code.
     *   Distribute copies.
     *   Use it for private or commercial purposes.
-    *   *Condition*: You just need to keep the original copyright notice (`Copyright (c) 2025 aannyyaa06`) in any copies.
+    *   *Condition*: You just need to keep the original copyright notice (`Copyright (c) 2026 aannyyaa06`) in any copies.
 
 ### 3. 🤝 How to Reuse & Contribute
 We believe in community collaboration for climate action. Here is how you can help:

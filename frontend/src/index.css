@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 140 20% 98%;
+    --foreground: 150 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 12%;
+
+    --primary: 150 45% 35%;
+    --primary-foreground: 0 0% 98%;
+    
+    --primary-glow: 150 60% 45%;
+
+    --secondary: 200 40% 50%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 140 15% 94%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 85 80% 55%;
+    --accent-foreground: 150 30% 12%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --success: 140 60% 45%;
+    --success-foreground: 0 0% 98%;
+    
+    --warning: 35 90% 55%;
+    --warning-foreground: 150 30% 12%;
+
+    --border: 140 20% 88%;
+    --input: 140 20% 88%;
+    --ring: 150 45% 35%;
+
+    --radius: 0.75rem;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(0, 45%, 35%), hsl(335, 86%, 59%));
+    --gradient-accent: linear-gradient(135deg, hsl(336, 80%, 55%), hsl(344, 89%, 70%));
+    --gradient-earth: linear-gradient(180deg, hsl(140 20% 98%), hsl(339, 65%, 81%));
+    
+    --shadow-soft: 0 2px 8px hsla(341, 31%, 12%, 0.08);
+    --shadow-medium: 0 4px 16px hsla(341, 31%, 12%, 0.12);
+    --shadow-glow: 0 0 30px hsla(346, 71%, 43%, 0.3);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 150 40% 96%;
+    --sidebar-foreground: 150 30% 12%;
+    --sidebar-primary: 150 45% 35%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 140 25% 90%;
+    --sidebar-accent-foreground: 150 30% 12%;
+    --sidebar-border: 140 20% 88%;
+    --sidebar-ring: 150 45% 35%;
+  }
+
+  .dark {
+    --background: 150 25% 8%;
+    --foreground: 140 15% 92%;
+
+    --card: 150 20% 12%;
+    --card-foreground: 140 15% 92%;
+
+    --popover: 150 20% 12%;
+    --popover-foreground: 140 15% 92%;
+
+    --primary: 150 55% 50%;
+    --primary-foreground: 150 25% 8%;
+    
+    --primary-glow: 150 70% 60%;
+
+    --secondary: 200 45% 45%;
+    --secondary-foreground: 140 15% 92%;
+
+    --muted: 150 15% 18%;
+    --muted-foreground: 140 10% 60%;
+
+    --accent: 85 75% 60%;
+    --accent-foreground: 150 25% 8%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 140 15% 92%;
+    
+    --success: 140 55% 50%;
+    --success-foreground: 150 25% 8%;
+    
+    --warning: 35 85% 60%;
+    --warning-foreground: 150 25% 8%;
+
+    --border: 150 15% 22%;
+    --input: 150 15% 22%;
+    --ring: 150 55% 50%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(242, 45%, 35%), hsl(201, 70%, 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(176, 75%, 60%), hsl(217, 70%, 60%));
+    --gradient-earth: linear-gradient(180deg, hsl(150 25% 8%), hsl(150 20% 12%));
+    
+    --shadow-soft: 0 2px 8px hsla(0, 0%, 0%, 0.3);
+    --shadow-medium: 0 4px 16px hsla(0, 0%, 0%, 0.4);
+    --shadow-glow: 0 0 30px hsla(150, 70%, 60%, 0.4);
+    
+    --sidebar-background: 150 20% 12%;
+    --sidebar-foreground: 140 15% 92%;
+    --sidebar-primary: 150 55% 50%;
+    --sidebar-primary-foreground: 150 25% 8%;
+    --sidebar-accent: 150 15% 18%;
+    --sidebar-accent-foreground: 140 15% 92%;
+    --sidebar-border: 150 15% 22%;
+    --sidebar-ring: 150 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  a {
+    color: hsl(var(--primary));
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: hsl(var(--primary-glow));
+  }
+  
+  .card {
+    @apply rounded-lg shadow-medium bg-card text-card-foreground border border-border p-6;
+    transition: box-shadow 0.3s ease;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  button {
+    @apply rounded-md px-4 py-2 text-sm font-semibold transition-colors duration-300 cursor-pointer;
+  }
+  button.primary {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  button.primary:hover {
+    background: hsl(var(--primary-glow));
+  }
+
+  .badge {
+    @apply inline-flex items-center justify-center rounded-full px-2 py-1 text-xs font-semibold transition-colors;
+  }
+  .badge.primary {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  .badge.success {
+    background: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+  }
+  .badge.destructive {
+    background: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: hsl(var(--foreground));
+  }
+}
+

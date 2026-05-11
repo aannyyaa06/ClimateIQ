@@ -1,83 +1,180 @@
-# 🌿 Carbogreen
+<div align="center">
 
-**Carbogreen** is a **"Carbon Footprint & Marine Conservation Dashboard"**. It connects your digital life with the physical world by tracking your digital carbon footprint (emails, storage, streaming) and connecting you with "Blue Carbon" marine conservation projects.
+# 🌿 DigiBin
 
----
+### Carbon Footprint & Marine Conservation Dashboard
 
-## 🌟 Features
+**Digital Carbon Tracking · Blue Carbon Marketplace · Google API Integration**
 
-*   **Digital Carbon Tracking**: 
-    *   Estimates CO₂ impact from **Gmail** (email count), **Google Drive** (storage size), and **YouTube** (streaming hours).
-*   **Actionable Automation**: 
-    *   **Smart Email Scheduling**: Review and organize emails to reduce clutter.
-    *   **File Archiving**: Automatically move old files to an "Archive" folder in Drive to manage storage.
-*   **Blue Carbon Marketplace**: 
-    *   Explore a database of marine conservation projects (Mangroves, Blue Carbon).
-    *   View detailed metrics like **Carbon Sequestration**, **Biodiversity Index**, and **Water Quality** from coastal stations across India.
-*   **Interactive Dashboard**: Visualizes your daily vs. weekly carbon trends using beautiful charts.
+[![React](https://img.shields.io/badge/React-Vite-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
+[![Flask](https://img.shields.io/badge/Backend-Flask-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![TailwindCSS](https://img.shields.io/badge/Styling-Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+</div>
 
 ---
 
-## 🛠️ Technology Stack
+## Overview
 
-### Frontend (The Face)
-*   **React** (built with **Vite**) for a fast, responsive UI.
-*   **Tailwind CSS** for modern styling.
-*   **Shadcn UI** for professional, accessible components.
+**DigiBin** bridges your digital life with the physical world. Most people don't realize that emails, cloud storage, and streaming all leave a carbon footprint — this dashboard makes that visible, gives you tools to reduce it, and connects you with real marine conservation projects that sequester carbon from the ocean.
 
-### Backend (The Brain)
-*   **Python Flask** for the API server.
-*   **Pandas** for processing marine datasets (`CSV` analysis).
-*   **Google APIs** (Gmail, Drive, YouTube) for real-time user data.
+It plugs into your Google account (Gmail, Drive, YouTube) to pull real usage data, estimates your CO₂ impact, and lets you take direct action — whether that's cleaning up old files, scheduling emails more efficiently, or exploring Blue Carbon conservation projects across coastal India.
 
 ---
 
-## 🚀 Getting Started
+## Features
 
-Follow these steps to run Carbogreen locally.
+### 🌍 Digital Carbon Tracking
+Estimates your personal CO₂ impact from three sources:
+- **Gmail** — based on email count and storage
+- **Google Drive** — based on total storage size
+- **YouTube** — based on streaming hours
+
+### ⚡ Actionable Automation
+- **Smart Email Scheduling** — review and organize emails to cut down digital clutter
+- **File Archiving** — automatically moves old Drive files into an "Archive" folder to manage storage footprint
+
+### 🌊 Blue Carbon Marketplace
+- Browse a curated database of real marine conservation projects (Mangroves, Blue Carbon initiatives)
+- View live metrics per coastal station across India:
+  - Carbon Sequestration rates
+  - Biodiversity Index
+  - Water Quality scores
+
+### 📊 Interactive Dashboard
+Visualizes your daily vs. weekly carbon trends with clean, readable charts so you can actually see your impact over time.
+
+---
+
+## Tech Stack
+
+### Frontend
+| Technology | Role |
+|---|---|
+| React + Vite | Fast, responsive UI framework |
+| Tailwind CSS | Utility-first modern styling |
+| Shadcn UI | Accessible, professional components |
+
+### Backend
+| Technology | Role |
+|---|---|
+| Python Flask | API server |
+| Pandas | Marine dataset processing (CSV analysis) |
+| Google APIs | Real-time Gmail, Drive, and YouTube data |
+
+---
+
+## Project Structure
+
+```
+carbogreen/
+│
+├── backend/
+│   ├── app.py               # Flask API server
+│   ├── credentials.json     # Google API credentials (not committed)
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   ├── index.html
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+## Getting Started
 
 ### Prerequisites
-*   **Node.js** (for frontend)
-*   **Python** (for backend)
-*   **Google Cloud Credentials**: You need a `credentials.json` file for Google API access (place it in the `backend/` folder).
+
+- **Node.js** — for the frontend
+- **Python 3.x** — for the backend
+- **Google Cloud Credentials** — a `credentials.json` file with access to Gmail, Drive, and YouTube APIs
+
+> Get your credentials from [Google Cloud Console](https://console.cloud.google.com/). Place the downloaded `credentials.json` inside the `backend/` folder.
+
+---
 
 ### 1. Backend Setup
-The backend runs the logic and connects to Google Services.
 
 ```bash
 cd backend
-# Create a virtual environment (optional but recommended)
+
+# Create a virtual environment (recommended)
 python -m venv venv
-# Windows: venv\Scripts\activate
-# Mac/Linux: source venv/bin/activate
+
+# Activate it
+# Windows:
+venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the server
+# Start the server
 python app.py
 ```
-*The backend runs on `http://localhost:5000`.*
+
+Backend runs at `http://localhost:5000`
+
+---
 
 ### 2. Frontend Setup
-The frontend displays the dashboard.
 
 ```bash
 cd frontend
+
 # Install dependencies
 npm install
 
 # Start the dev server
 npm run dev
 ```
-*The frontend runs on `http://localhost:8080` (or similar).*
+
+Frontend runs at `http://localhost:8080`
 
 ---
 
-## 📄 License
+### 3. Connect Your Google Account
 
-This project is licensed under the **MIT License** - see the `LICENSE` file for details.
+On first run, you'll be prompted to authorize Carbogreen to access your Gmail, Drive, and YouTube data. This is handled via OAuth — your credentials are never stored on any server.
 
 ---
 
-**Copyright (c) 2026 aannyyaa06**
+## How It Works
+
+```
+Google Account (Gmail / Drive / YouTube)
+           │
+           ▼
+    Flask Backend (app.py)
+    ├── Pulls real usage data via Google APIs
+    ├── Estimates CO₂ from usage metrics
+    └── Serves marine project data from CSV (via Pandas)
+           │
+           ▼
+    React Frontend
+    ├── Displays carbon footprint dashboard
+    ├── Shows daily vs. weekly trend charts
+    └── Blue Carbon Marketplace (browse + filter projects)
+```
+
+---
+
+## License
+
+MIT — free to use, modify, and distribute. See [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+
+**Copyright © 2026 aannyyaa06**
+
+*Your digital habits have a footprint. Make it count for something.*
+
+</div>
